@@ -1,23 +1,42 @@
-		<br>
-	<h3><a href="{{url('mahasiswa/create')}}">Add Mahasiswa</a></h3>
+@extends('admin.layouts.app')
 
-		@foreach($mahasiswa as $row)
-		- <b>No</b> 			: {{$row->id}}
-		- <b> Nama depan</b> 	: {{$row->first_name}}
-		- <b>Nama belakang</b>	: {{$row->last_name}}
-		- <b>Email 		</b>	: {{$row->email}}
-		- <b>Password</b> 		: {{$row->password}}
-		- <b>Jenis kelamin</b>	: {{$row->jenis_kelamin}}
-		- <b>Alamat</b> 		: {{$row->alamat}}
-		- <b>Tanggal lahir</b>	: {{$row->tanggal_lahir}}
-		- <b>Agama</b> 			: {{$row->agama_id}}
+@section('content')
+  <h3><a href="{{url('mahasiswa/create')}}" class="btn btn-primary">Add Mahasiswa</a></h3>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nama depan</th>
+                  <th>Nama belakang</th>
+                  <th>Email</th>
+                  <th>Password</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Alamat</th>
+                  <th>Tanggal lahir</th>
+                  <th>Agama</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($mahasiswa as $row)
+                <tr>
+                  <td>{{$row->id}}</td>
+                  <td>{{$row->first_name}}</td>
+                  <td>{{$row->last_name}}</td>
+                  <td>{{$row->email}}</td>
+                  <td>{{$row->password}}</td>
+                  <td>{{$row->jenis_kelamin}}</td>
+                  <td>{{$row->alamat}}</td>
+                  <td>{{$row->tanggal_lahir}}</td>
+                  <td>{{$row->agama_id}}</td>
+                  <td>
+                    <a href="{{url('mahasiswa/show/'.$row->id)}}" class="btn btn-success btn-xs">Show</a>
+                    <a href="{{url('mahasiswa/edit/'.$row->id)}}" class="btn btn-primary btn-xs">Edit</a>
+                    <a href="{{url('mahasiswa/hapus/'.$row->id)}}" class="btn btn-danger btn-xs">Hapus</a>
+                  </td>
+                </tr>
+              @endforeach
+              </tbody>
+            </table>
 
-
-		<br>
-		 - <a href="{{url('mahasiswa/show/'.$row->id)}}">Show</a>
-		 - <a href="{{url('mahasiswa/edit/'.$row->id)}}">Edit</a>
-		 - <a href="{{url('mahasiswa/hapus/'.$row->id)}}">Hapus</a>
-		<br>
-
-		@endforeach
-
+@endsection

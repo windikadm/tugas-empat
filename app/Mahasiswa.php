@@ -16,4 +16,10 @@ class Mahasiswa extends Model
 
     protected $dates =['deleted_at'];
 
+    
+    public function getFullNameAttribute()
+	{
+    	return "{$this->first_name} {$this->last_name}";
+	}
+
 }

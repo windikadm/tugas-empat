@@ -26,4 +26,6 @@ Route::prefix('mahasiswa')->group(function () {
 
 });
 
-// Route::resource('mahasiswa2','Mahasiswa');
+Route::prefix('admin')->group(function () {
+	Route::view('app', 'admin.layouts.app');
+});

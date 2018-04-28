@@ -1,3 +1,8 @@
+@extends('admin.layouts.app')
+
+@section('content')
+
+
 
 <form action="{{url('mahasiswa/create')}}" method="post">
 	Nama depan		: <input type="text" name="first_name"> <br>
@@ -15,3 +20,6 @@
 
 	<button type="submit" >GOL</button>
 </form>
+
+
+@endsection

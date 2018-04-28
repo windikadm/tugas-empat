@@ -30,6 +30,8 @@ class MahasiswaController extends Controller
 
     public function insert(Request $request)
     	{
+   
+
     		$mahasiswa = new Mahasiswa;
     		$mahasiswa->first_name = $request->first_name;
     		$mahasiswa->last_name = $request->last_name;
